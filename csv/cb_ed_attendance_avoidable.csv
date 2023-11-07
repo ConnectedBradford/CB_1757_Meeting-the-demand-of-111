@@ -1,0 +1,9 @@
+avoidable,ooh,gp_contact,n
+non_urgent,in-hours,no,139
+non_urgent,in-hours,yes,130
+non_urgent,ooh,no,430
+non_urgent,ooh,yes,330
+urgent,in-hours,no,1518
+urgent,in-hours,yes,1098
+urgent,ooh,no,3321
+urgent,ooh,yes,2327
