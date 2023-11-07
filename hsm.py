@@ -6,7 +6,6 @@ import pandas as pd
 import numpy as np
 from math import floor
 from itertools import product
-from datetime import datetime
 import sys
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -97,21 +96,8 @@ class HSM:
         
         self.call_interarrival_times_lu = pd.read_csv("csv/inter_arrival_times.csv")
 
-        # UPDATE
-        # We are now going to save each run in its own file
-        # With large simulation runs e.g. 1 year, 100 simulations, crashes are occuring
-        # in docker containers.
-        file_name_dt = datetime.utcnow().strftime('%Y-%m-%d-%H-%M')
-        all_results_location = f"data/all_results-{file_name_dt}-{self.run_number}.csv"
-        network_graph_location = f"data/network_graph-{file_name_dt}-{self.run_number}.csv"
-
-        wi_all_results_location = f"data/wi_all_results-{file_name_dt}-{self.run_number}.csv"
-        wi_network_graph_location = f"data/wi_network_graph-{file_name_dt}-{self.run_number}.csv"
-
-        self.all_results_location = all_results_location if what_if_sim_run == 'No' else wi_all_results_location
-        self.network_graph_location = network_graph_location if what_if_sim_run == 'No' else wi_network_graph_location
-
-        print(f"Results save location is: {self.all_results_location}")
+        self.all_results_location = G.all_results_location if what_if_sim_run == 'No' else G.wi_all_results_location
+        self.network_graph_location = G.network_graph_location if what_if_sim_run == 'No' else G.wi_network_graph_location
 
 
     def create_network_df(self, run_number: int) -> pd.DataFrame:

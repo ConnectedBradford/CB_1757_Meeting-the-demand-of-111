@@ -3,7 +3,7 @@ from dash import html, Input, Output, State, dcc, dash_table
 from app import app, long_callback_manager
 from layouts import SHOW_BUTTON_STYLE, HIDE_BUTTON_STYLE
 import logging
-from oneoneonedes import parallelProcess, prepStartingVars, cleanUpFiles
+from oneoneonedes import parallelProcess, prepStartingVars
 import pandas as pd
 import plotly.express as px
 import numpy as np
@@ -57,8 +57,6 @@ def configSim(run_sim, sim_duration, warm_up_time, number_of_runs, sim_start_dat
             transition_type = transition_type_value,
             ia_type = ia_time_value
         )
-
-        cleanUpFiles()
         parallelProcess()
 
         return 1

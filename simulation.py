@@ -83,8 +83,8 @@ simulation = html.Div([
                             html.P('This option enables you to select the type of transition (how patient movement from one service to the next) will be calculated', className='small'),
                             dcc.RadioItems([
                                 {'label' : 'Base', 'value' : 'base'}, 
-                                {'label' : 'Base + Yearly Quarters', 'value': 'qtr'}
-                                #{'label' : 'ML', 'value' : 'tree'}
+                                {'label' : 'Base + Yearly Quarters', 'value': 'qtr'},
+                                {'label' : 'ML', 'value' : 'tree'}
                             ], 'qtr', id="transition_type_value", inline=False, inputStyle={"marginRight": "5px"}, labelStyle={"marginRight": "10px"}, className='lead'),
                         ], className="pt-5"),
                         html.Div([

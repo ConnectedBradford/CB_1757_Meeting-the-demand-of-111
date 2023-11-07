@@ -6,8 +6,6 @@ from layouts import nav_bar, CONTENT_STYLE, footer
 from results import results
 from homepage import home
 from simulation import simulation
-from g import G
-import os
 import callbacks
 
 import warnings
@@ -51,4 +49,4 @@ def display_page(pathname):
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

@@ -27,7 +27,7 @@ class Transitions:
         self.transition_type = transition_type
 
         # Early (and terrible) attempt at using a decision tree model
-        #self.dt_model =  pickle.load(open('csv/decision_tree_model.sav', 'rb'))
+        self.dt_model =  pickle.load(open('csv/decision_tree_model.sav', 'rb'))
         
         self.avoidable_ed_admission_df = pd.read_csv(G.avoidable_admission_by_PC_outcome_GP_contact)
 

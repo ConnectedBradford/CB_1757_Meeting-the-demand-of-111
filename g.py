@@ -19,7 +19,11 @@ class G:
     
     pt_time_in_sim = 4320 # 4320 for 72 hours
     
-    results_location = 'data/'
+    all_results_location = 'data/all_results.csv'
+    network_graph_location = 'data/network_graph.csv'
+
+    wi_all_results_location = 'data/wi_all_results.csv'
+    wi_network_graph_location = 'data/wi_network_graph.csv'
 
     cb_111_call_volumes = 'csv/cb_111_call_volumes.csv'
     cb_node_list = 'csv/cb_node_list.csv'

@@ -87,18 +87,18 @@ def parallelProcess(nprocess = mp.cpu_count() - 1):
     global transition_type
     global ia_type
 
+    file_locs = [G.all_results_location, G.wi_all_results_location, G.network_graph_location, G.wi_network_graph_location]
+
+    [os.remove(x) for x in file_locs if os.path.isfile(x)]
+
     pool = mp.Pool(processes = nprocess)
     pool.starmap(runSim, zip(list(range(0, number_of_runs)), [number_of_runs] * number_of_runs, [sim_duration] * number_of_runs, [warm_up_time] * number_of_runs, [sim_start_date] * number_of_runs, [what_if_sim_run] * number_of_runs, [transition_type] * number_of_runs, [ia_type] * number_of_runs))
 
     logging.debug('Reached end of script')
     logging.shutdown()
 
-def cleanUpFiles():
-    for f in os.listdir(G.results_location):
-        os.remove(os.path.join(G.results_location, f))
-
 
 #runSim(0, 1, 3, 1, "2021-01-01 00:00:00","Yes", 'base', 'minmax')
 
-if __name__ == "__main__": 
+if __name__ == "__main__":  
     parallelProcess(nprocess = mp.cpu_count() - 1)
